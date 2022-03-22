@@ -1,6 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 from config.constants import *
+from apps.category.models import Category
 
 
 class Product(models.Model):
@@ -8,6 +9,9 @@ class Product(models.Model):
         db_table = 'product'
     status = models.CharField(
         'Status', blank=False, max_length=15, db_index=True, default='inactive', choices=STATUS
+    )
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE
     )
     name = models.CharField(
         'Name', blank=False, null=False, max_length=14, db_index=True, default='Anonymous'

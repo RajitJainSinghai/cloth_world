@@ -396,6 +396,18 @@ h1#thankyouHeading {
 }
 
 @media screen and (max-width: 900px) {
+    .searchBar {
+        margin-top: 12px;
+        position: relative;
+        left: 30vh;
+    }
+    .carts {
+        margin-top: 22px;
+        position: absolute;
+        z-index: 1;
+        right: 48px;
+        margin-top: 26px;
+    }
     li.menu {
         display: grid;
         grid-template-columns: 34% 34% 34%;
