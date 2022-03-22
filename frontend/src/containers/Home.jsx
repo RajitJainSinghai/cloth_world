@@ -1,87 +1,88 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Loading from '../assets/img/loading.gif';
-import postImage from '../assets/img/newspaper-icon-png.jpg';
-import PostForm from '../components/Posts/PostForm';
-import Post from '../components/Posts/Post';
-import { fetchPosts } from '../reducks/posts/operations';
-import { getPosts } from '../reducks/posts/selectors';
+import React from 'react';
+import background1 from '../assets/img/background-1.png';
+import background2 from '../assets/img/background-2.png';
+import background3 from '../assets/img/background-3.png';
+import background4 from '../assets/img/background-4.png';
+import Footer from '../components/common/Footer';
+import buyNow from '../assets/img/Buynow-image.png';
+import recommand1 from '../assets/img/recommand-1.png';
+import recommand2 from '../assets/img/recommand-2.png';
+import recommand3 from '../assets/img/recommand-3.png';
+import recommand4 from '../assets/img/recommand-4.png';
+import Header from '../components/common/Header';
 
-const Home = () => {
-    const dispatch = useDispatch();
-    const selector = useSelector(state => state);
-    const posts = getPosts(selector);
-    let [page, setPage] = useState(1);
-    const [isLoading, setIsLoading] = useState(false);
-
-    useEffect(() => {
-        dispatch(fetchPosts({ page }));
-        // eslint-disable-next-line
-    }, []);
-
-    // Infinite Scroll Pagination Flow
-    const observer = useRef();
-
-    // Reference to a very last post element
-    const lastPostElement = useCallback(
-        node => {
-            if (isLoading) return;
-            // Disconnect reference from previous element, so that new last element is hook up correctly
-            if (observer.current) {
-                observer.current.disconnect();
-            }
-
-            // Observe changes in the intersection of target element
-            observer.current = new IntersectionObserver(async entries => {
-                // That means that we are on the page somewhere, In our case last element of the page
-                if (entries[0].isIntersecting && posts.next) {
-                    // Proceed fetch new page
-                    setIsLoading(true);
-                    setPage(++page);
-                    await dispatch(fetchPosts({ page }));
-                    setIsLoading(false);
-                }
-            });
-
-            // Reconnect back with the new last post element
-            if (node) {
-                observer.current.observe(node);
-            }
-        },
-        // eslint-disable-next-line
-        [posts.next]
-    );
-
+function Home() {
     return (
-        <section className="content">
-            <PostForm />
-            <section className="posts">
-                {posts.results.length > 0 ? (
-                    <ul>
-                        {posts.results.map((post, index) => {
-                            return (
-                                <Post
-                                    ref={index === posts.results.length - 1 ? lastPostElement : null}
-                                    key={post.id}
-                                    post={post}
-                                />
-                            );
-                        })}
-                    </ul>
-                ) : (
-                    <div className="no-post">
-                        <img width="72" src={postImage} alt="icon" />
-                        <p>No posts here yet...</p>
+        <>
+            <Header />
+
+            <section class="section-1">
+                <img class="backgroundImg" src={background1} alt="" />
+                <div class="background">
+                    <h1>
+                        GET BRANDED CLOTHES AT <br />
+                        <span id="bold"> CLOTHWORLD</span>
+                    </h1>
+                    <p id="paragraph1">
+                        A transformative clothes which can be worn in any occationlike <br />
+                        Party, office, while trecking and more@
+                    </p>
+                    <div class="BuyNowbutton">
+                        <button class="buy">
+                            <img src={buyNow} alt="" />
+                        </button>
+                        <button class="tradeIn">With $599 with trade-in</button>
                     </div>
-                )}
-                {isLoading && (
-                    <div className="loading">
-                        <img src={Loading} className="" alt="" />
+                </div>
+                <center>
+                    <p id="awesomeProduct">EXPLORE AWESOME PRODUCTS</p>
+                    <h2>RECOMMENDED FOR YOU</h2>
+                </center>
+                <div class="recommandedImg">
+                    <div>
+                        <img src={recommand1} alt="" />
+                        <center>
+                            <p id="singleTour">Single Tour</p>
+                            <button id="price">$990</button>
+                        </center>
                     </div>
-                )}
+                    <div>
+                        <img src={recommand2} alt="" />
+                        <center>
+                            <p id="singleTour">Single Tour</p>
+                            <button id="price">$990</button>
+                        </center>
+                    </div>
+                    <div>
+                        <img src={recommand3} alt="" />
+                        <center>
+                            <p id="singleTour">Single Tour</p>
+                            <button id="price">$990</button>
+                        </center>
+                    </div>
+                    <div>
+                        <img src={recommand4} alt="" />
+                        <center>
+                            <p id="singleTour">Single Tour</p>
+                            <button id="price">$990</button>
+                        </center>
+                    </div>
+                </div>
             </section>
-        </section>
+
+            <section class="section-2">
+                <center>
+                    <img id="tag" src="./img/tag-kids.png" alt="" />
+                    <img class="backgroundImg" src={background2} alt="" />
+                    <img id="tag" src="./img/tags-women.png" alt="" />
+                    <img class="backgroundImg" src={background3} alt="" />
+                    <img id="tag" src="./img/tags-men.png" alt="" />
+                    <img class="backgroundImg" src={background4} alt="" />
+                </center>
+            </section>
+            <Footer />
+        </>
     );
-};
+}
 
 export default Home;
