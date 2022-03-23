@@ -8,7 +8,7 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
-    
+
     def validate(self, data):
         errors = {}
         if 'full_name' not in data or not data['full_name']:
@@ -42,6 +42,7 @@ class OrderSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(errors)
 
         return data
+
 
 class OrderItemSerializer(serializers.ModelSerializer):
 

@@ -1,4 +1,7 @@
 from django.shortcuts import render
+
+# Create your views here.
+from django.shortcuts import render
 from rest_framework import generics
 from rest_framework import status
 from rest_framework.response import Response
@@ -44,7 +47,7 @@ class OrderAdd(CustomLoginRequiredMixin, generics.CreateAPIView):
         # Save to order items
         for cart in carts:
             order_item_form = OrderItemForm(
-                {"order_id": order.id, "product_id": cart.product_id.id, "quantity": cart.quantity})
+                {"order_id": order.id, "item_id": cart.item_id.id, "quantity": cart.quantity})
             order_item_form.save()
 
         # Delete cart items
