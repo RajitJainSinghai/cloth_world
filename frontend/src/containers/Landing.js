@@ -57,11 +57,17 @@ export default function Landing() {
         <section class="section-2">
           <center>
             <img id="tag" src={tagsKid} alt="" />
-            <img class="backgroundImg" src={background2} alt="" />
+            <a href="/sign-up">
+              <img class="backgroundImg" src={background2} alt="" />
+            </a>
             <img id="tag" src={tagsWomen} alt="" />
-            <img class="backgroundImg" src={background3} alt="" />
+            <a href="/sign-up">
+              <img class="backgroundImg" src={background3} alt="" />
+            </a>
             <img id="tag" src={tagsMen} alt="" />
-            <img class="backgroundImg" src={background4} alt="" />
+            <a href="/sign-up">
+              <img class="backgroundImg" src={background4} alt="" />
+            </a>
           </center>
         </section>
       </section>
