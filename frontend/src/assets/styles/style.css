@@ -830,7 +830,7 @@ h1#thankyouHeading {
   }
   .popup-inner {
     width: 50vh;
-    height: 80vh;
+    height: 98vh;
   }
 }
 
@@ -839,7 +839,15 @@ h1#thankyouHeading {
     margin: 40px;
     width: 100%;
   }
+  img.logo {
+    width: 75px;
+    margin-top: 15px;
+  }
 
+  .custom-btn1 {
+    height: 42px;
+    width: 40%;
+  }
   .topnav {
     display: none;
   }
@@ -855,7 +863,7 @@ h1#thankyouHeading {
   }
   .popup-inner {
     width: 50vh;
-    height: 85vh;
+    height: 98vh;
   }
   .searchBar {
     display: none;

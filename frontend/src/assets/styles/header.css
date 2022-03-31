@@ -230,15 +230,22 @@
 
 @media (max-width: 550px) {
   .search-input {
-    right: 35vw;
-    top: 35px;
+    right: 46vw;
+    top: 0px;
+  }
+  .cart-icon {
+    margin-right: 0px;
+  }
+  .cart {
+    width: 80%;
+    margin: 0 auto;
   }
   .menu__box {
-    display: grid;
+    display: flex;
     align-items: center;
     margin: 0;
     position: absolute;
     right: 0px;
-    top: -10px;
+    top: 30px;
   }
 }
