@@ -764,9 +764,6 @@ ul.container {
   margin: 20px;
   list-style-type: none;
 }
-li {
-  margin: 35px;
-}
 
 /************** Thank you **********************/
 h1#thankyouHeading {
@@ -875,7 +872,7 @@ h1#thankyouHeading {
     margin: 20px;
   }
   button.tradeIn {
-    padding: 0px 0px;
+    padding: 5px 0px;
   }
   .BuyNowbutton {
     display: grid;

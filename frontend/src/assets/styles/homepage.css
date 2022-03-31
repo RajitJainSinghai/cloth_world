@@ -195,7 +195,7 @@ img.backgroundImg {
   }
 
   .product-card {
-    width: 90%;
+    width: 100%;
   }
 
   .product-container {
@@ -308,6 +308,11 @@ img.backgroundImg {
 
   .right-border {
     height: 98%;
+  }
+  .category-list ul {
+    padding: 0;
+    display: flex;
+    margin-top: 40px;
   }
 }
 
